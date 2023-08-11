@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fltt bukde med piler</title>
+
+    <style>
+        div.square {
+            border: 1px solid gray;
+            display: flex;
+            -ms-flex-align: center;
+        }
+
+        div.board {
+            display: grid;
+            grid-template-columns: repeat(2, 15rem);
+            grid-template-rows: repeat(2, 10rem);
+        }
+
+        div.buttons {
+            width: 20rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        img {
+            width: 90%
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="board">
+            <div class="square"></div>
+            <div class="square"></div>
+            <div class="square">
+                <img src="https://getacademy.no/hubfs/GET_RGB_logo-01-2.png" />
+            </div>
+            <div class="square"></div>
+        </div>
+        <div class="buttons">
+            <button onclick="UpperLeft()">▲</button>
+            <div>
+                <button disabled>◀</button>
+                <button onclick="LowerRight()">▶</button>
+            </div>
+            <button disabled>▼</button>
+        </div>
+    </div>
+
+    <script>
+        function UpperLeft() {
+            document.getElementById('app').innerHTML =/*HTML*/ `
+                <div class="board">
+                    <div class="square">
+                        <img src="https://getacademy.no/hubfs/GET_RGB_logo-01-2.png" />
+                    </div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                </div>
+                <div class="buttons">
+                    <button disabled>▲</button>
+                    <div>
+                        <button disabled>◀</button>
+                        <button onclick="UpperRight()">▶</button>
+                    </div>
+                    <button onclick="LowerLeft()">▼</button>
+                </div>`
+        }
+
+        function UpperRight() {
+            document.getElementById('app').innerHTML =/*HTML*/ `
+                <div class="board">
+                    <div class="square"></div>
+                    <div class="square">
+                        <img src="https://getacademy.no/hubfs/GET_RGB_logo-01-2.png" />
+                    </div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                </div>
+                <div class="buttons">
+                    <button disabled>▲</button>
+                    <div>
+                        <button onclick="UpperLeft()">◀</button>
+                        <button disabled>▶</button>
+                    </div>
+                    <button onclick="LowerRight()">▼</button>
+                </div>`
+        }
+
+        function LowerLeft() {
+            document.getElementById('app').innerHTML =/*HTML*/ `
+                <div class="board">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square">
+                        <img src="https://getacademy.no/hubfs/GET_RGB_logo-01-2.png" />
+                    </div>
+                    <div class="square"></div>
+                </div>
+                <div class="buttons">
+                    <button onclick="UpperLeft()">▲</button>
+                    <div>
+                        <button disabled>◀</button>
+                        <button onclick="LowerRight()">▶</button>
+                    </div>
+                    <button disabled>▼</button>
+                </div>`
+        }
+
+        function LowerRight() {
+            document.getElementById('app').innerHTML =/*HTML*/ `
+                <div class="board">
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square"></div>
+                    <div class="square">
+                        <img src="https://getacademy.no/hubfs/GET_RGB_logo-01-2.png" />
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button onclick="UpperRight()">▲</button>
+                    <div>
+                        <button onclick="LowerLeft()">◀</button>
+                        <button disabled>▶</button>
+                    </div>
+                    <button disabled>▼</button>
+                </div>`
+        }
+    </script>
+</body>
+
+</html>
